@@ -3,44 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use domain\Facades\ProductFacade;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends ParentController
 {       
-        protected $task;
-
-        public function __construct()
-        {
-            $this->task = new Product();
-        }
+      
+       
 
         public function index()
         {
-            $response['tasks'] = $this->task->all();
+            $response['tasks'] = ProductFacade::all();
            
             return view('pages.product.index')->with($response);
         }
         
         public function store(Request $request)
         {
-            $this->task->create($request->all());
+            ProductFacade::store($request->all());
 
             return redirect()->back();
     
         }
         public function delete($task_id)
         {
-            $task = $this->task->find($task_id);
-            $task->delete();
+            ProductFacade::delete($task_id);
+            
 
             return redirect()->back();
         }
 
         public function status($task_id)
         {
-            $task = $this->task->find($task_id);
-            $task->status = 1;
-            $task->update();
+            ProductFacade::status($task_id);
 
             return redirect()->back();
         }
