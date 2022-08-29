@@ -65,6 +65,7 @@
                         <a href="{{ route('product.status',$task->id) }}" class="btn btn-success"><i class="fas fa-check-circle"></i></a>
                         
                         
+                        
                         <a href="javascript:void(0)" class="btn btn-info"><i class="fas fa-pencil" onclick="taskEditModal({{ $task->id }})"></i></a>
                     </td>
 
