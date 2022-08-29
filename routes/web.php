@@ -29,6 +29,7 @@ Route::prefix('/product')->group(function(){
     Route::get('/{task_id}/delete', [ProductController::class, "delete"])->name('product.delete');
     Route::get('/{task_id}/status', [ProductController::class, "status"])->name('product.status');
     
+    
 });
 
 

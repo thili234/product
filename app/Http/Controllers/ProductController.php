@@ -40,6 +40,7 @@ class ProductController extends ParentController
             return redirect()->back();
         }
 
+       
         public function edit(Request $request)
         {
             $response['task'] = ProductFacade::get($request[task_id]);
